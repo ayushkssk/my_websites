@@ -35,13 +35,14 @@
     /* Header */
     .header {
       text-align: center;
-      padding: 50px 20px;
+      padding: 20px;
       background: linear-gradient(120deg, #ff9a9e, #fad0c4);
       border-bottom: 5px solid rgba(0, 0, 0, 0.1);
+      position: relative;
     }
 
     .title {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
 
     .subtitle {
@@ -173,14 +174,123 @@
     .footer-section a:hover {
       color: #ff9a9e;
     }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding-top: 60px;
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 10px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .copy-button {
+      background: #66a6ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .copy-button:hover {
+      background: #0056b3;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-container {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        left: 0;
+        z-index: 1000;
+      }
+
+      .nav-container.active {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+      }
+    }
+
+    .social-links a:hover {
+      color: #ff9a9e;
+      transition: color 0.3s ease, transform 0.3s ease;
+      transform: scale(1.1);
+    }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <header class="header">
     <h1 class="title">DLT Authorization Portal</h1>
     <p class="subtitle">Effortlessly Manage Your DLT Registration for Bulk SMS</p>
+    <!-- Menu Toggle Button -->
+    <button class="menu-toggle" aria-label="Toggle navigation menu">&#9776;</button>
     <!-- Navigation Links -->
-    <nav>
+    <nav class="nav-container">
       <ul class="nav-links">
         <li><a href="#about">About DLT</a></li>
         <li><a href="#registration">How to Register</a></li>
@@ -192,9 +302,9 @@
     </nav>
     <!-- Social Media Links -->
     <ul class="social-links">
-      <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
-      <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
-      <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+      <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+      <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+      <li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
     </ul>
   </header>
 
@@ -203,7 +313,7 @@
     <section id="about" class="about">
       <h2>About DLT Registration</h2>
       <p>
-        DLT (Distributed Ledger Technology) रजिस्ट्रेशन TRAI (Telecom Regulatory Authority of India) द्वारा अनिवार्य किया गया है। इसका उद्देश्य स्पैम मैसेज रोकना और ग्राहकों को केवल वैध SMS भेजना सुनिश्चित करना है। यदि आप Bulk SMS भेजना चाहते हैं, तो आपको अपनी कंपनी या फर्म का DLT पर रजिस्ट्रेशन करना होगा।
+        DLT (Distributed Ledger Technology) रजिस्ट्रेशन TRAI (Telecom Regulatory Authority of India) द्वारा अनिवार्य किया गया है। इसका उद्देश्य स्पैम मैसेज रोकना र ग्राहकों को केवल वैध SMS भेजना सुनिश्चित करना है। यदि आप Bulk SMS भेजना चाहते हैं, तो आपको अपनी कंपनी या फर्म का DLT पर रजिस्ट्रेशन करना होगा।
       </p>
       <h3>DLT पर रजिस्ट्रेशन कैसे करें?</h3>
       <ol>
@@ -272,7 +382,7 @@
         </li>
         <li><strong>Step 3: Billing Details</strong>
           <ul>
-            <li>यदि आपने GST Certificate दिया है, तो उसका एड्रेस ऑटो-फिल हो जाएगा।</li>
+            <li>यदि आपन  GST Certificate दिया है, तो उसका एड्रेस ऑटो-फिल हो जाएगा।</li>
             <li>अन्यथा, मैन्युअली एड्रेस भरें।</li>
           </ul>
         </li>
@@ -300,33 +410,6 @@
         <li><strong>Entity Details</strong> - Name, address, and email details of the person registering the DLT account.</li>
       </ul>
     </section>
-
- 
-
-    <!-- Authorization Letter Template -->
-    <section class="template">
-      <h2>Authorization Letter Template</h2>
-      <pre>
-        <code>
-          <b>Authorization Letter</b>
-          To, DLT Registration Team, [Operator Name]
-          Subject: Authorization for Managing DLT Account
-          We hereby authorize [Name of Authorized Person] to manage our DLT account. 
-          Below are their details:
-          - Name: [Full Name] 
-          - Designation: [Designation] 
-          - Email: [Email Address] 
-          - ID Proof: [Aadhaar/PAN Number]
-          
-          This letter certifies that the above-mentioned person is authorized to manage and register the necessary DLT details for our company. 
-          
-          Thank you, 
-          [Company Name]
-          [Company Address]
-        </code>
-      </pre>
-    </section>
-
 
     <!-- After istration-->
     <section id="afterregistration" class="afterregistration">
@@ -428,7 +511,7 @@
         </li>
         <li>Authorized Person का Address Proof:
           <ul>
-            <li>बिजली का बिल, बैंक स्टेटमेंट या रेंट एग्रीमेंट।</li>
+            <li>बिजली का बिल, ैंक स्टेटमेंट या रेंट एग्रीमेंट।</li>
           </ul>
         </li>
       </ul>
@@ -463,7 +546,7 @@
 
       <h3>जरूरी डॉक्यूमेंट फॉर्मेट्स:</h3>
       <ul>
-        <li>सभी डॉक्यूमेंट्स साफ और स्कैन किए हुए PDF फॉर्मेट में होने चाहिए।</li>
+        <li>सभी डॉक्यूमेंट्स साफ और स्कैन किए हुए PDF फॉरमेट में हने चाहिए।</li>
         <li>GST Certificate और Authorization Letter पर डिजिटल या मैनुअल सिग्नेचर होना चाहिए।</li>
       </ul>
 
@@ -480,19 +563,21 @@
       <div class="footer-section">
         <h3>Quick Links</h3>
         <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#blogs">Blogs</a></li>
-          <li><a href="#updates">New Updates</a></li>
+          <li><a href="#about">About DLT</a></li>
           <li><a href="#registration">How to Register</a></li>
           <li><a href="#afterregistration">After Registration</a></li>
+          <li><a href="#fast2sms">Fast2SMS</a></li>
+          <li><a href="#importantnotes">Important Notes</a></li>
+          <li><a href="#importantdocuments">Important Documents</a></li>
+          <li><a href="#" id="templateLink">Authorization Letter Template</a></li>
         </ul>
       </div>
       <div class="footer-section">
         <h3>Social Media</h3>
         <ul>
-          <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
-          <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
-          <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+          <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
         </ul>
       </div>
       <div class="footer-section">
@@ -510,10 +595,90 @@
     <p>&copy; 2024 DLT Registration Portal. All Rights Reserved.</p>
   </footer>
 
+  <!-- Modal for Authorization Letter Template -->
+  <div id="templateModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <pre id="templateText">
+(On College Letterhead)
+
+Date: [DD/MM/YYYY]
+
+To,
+DLT Registration Team,
+[Telecom Operator Name (e.g., Jio, Airtel, Vodafone Idea)]
+
+Subject: Authorization for Managing DLT Account
+
+Respected Sir/Madam,
+
+We, [College Name], located at [Full Address of College], hereby authorize [Authorized Person’s Full Name] to manage and operate the DLT account on behalf of our institution. The details of the authorized person are as follows:
+  • Full Name: [Authorized Person’s Full Name]
+  • Designation: [Designation in the College, e.g., Admin, Registrar]
+  • Email ID: [Authorized Person’s Email ID]
+  • Contact Number: [Authorized Person’s Phone Number]
+  • ID Proof: [Type of ID Proof Attached, e.g., Aadhaar or PAN]
+
+This authorization is granted to enable them to handle all activities related to the DLT platform, including but not limited to, creating headers, managing templates, and communicating with service providers.
+
+We confirm that the above-mentioned individual is a bona fide representative of our institution, and we accept all responsibilities for actions taken by them on behalf of [College Name].
+
+Kindly accept this authorization and grant them access to manage our DLT registration.
+
+Thank you.
+
+Sincerely,
+[Name of Principal/Director/Authorized Signatory]
+[Designation]
+[College Stamp/Seal]
+
+Attachments:
+
+  1. Authorized Person’s ID Proof (Aadhaar/PAN)
+  2. College Registration Certificate
+      </pre>
+      <button id="copyButton" class="copy-button">Copy to Clipboard</button>
+    </div>
+  </div>
+
   <script>
     document.querySelector('form').addEventListener('submit', (e) => {
       e.preventDefault();
       alert('Thank you for contacting us! We will get back to you shortly.');
+    });
+
+    // Modal functionality
+    var modal = document.getElementById("templateModal");
+    var link = document.getElementById("templateLink");
+    var span = document.getElementsByClassName("close")[0];
+    var copyBtn = document.getElementById("copyButton");
+    var templateText = document.getElementById("templateText").innerText;
+
+    link.onclick = function(event) {
+      event.preventDefault();
+      modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    copyBtn.onclick = function() {
+      navigator.clipboard.writeText(templateText).then(function() {
+        alert('Template copied to clipboard!');
+      }, function(err) {
+        console.error('Could not copy text: ', err);
+      });
+    }
+
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-container').classList.toggle('active');
     });
   </script>
 </body>
