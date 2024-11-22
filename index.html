@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Creations</title>
+    <title>My Works</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Tailwind CSS -->
@@ -12,90 +12,63 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         /* Custom Styles */
-        body {
+        body, footer {
             background: linear-gradient(135deg, #f4f4f9, #e0e0e0);
             color: #333;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
         }
 
-        header {
+        header, footer {
             background: linear-gradient(135deg, #333, #555);
             color: #fff;
             padding: 20px 0;
-            text-align: center;
+            width: 100%;
+        }
+
+        header {
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        nav a {
+        nav a, .quick-links a, .social-icons a {
             color: #fff;
-            margin: 0 15px;
+            margin: 0 10px;
             text-decoration: none;
-            font-size: 1.1rem;
             transition: color 0.3s;
         }
 
-        nav a:hover {
+        nav a:hover, .quick-links a:hover, .social-icons a:hover {
             color: #ff9a9e;
-            text-decoration: none; /* Remove underline on hover */
+        }
+
+        nav a {
+            font-size: 1.1rem;
         }
 
         .card:hover {
             transform: scale(1.05);
         }
 
-        footer {
-            background: linear-gradient(135deg, #333, #555);
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            position: relative;
-            width: 100%;
-        }
-
         .social-icons a {
-            color: #fff;
-            margin: 0 10px;
             font-size: 1.5rem;
             transition: transform 0.3s, color 0.3s;
-            text-decoration: none; /* Ensure no underline */
         }
 
         .social-icons a:hover {
             transform: scale(1.2);
-            color: #ff9a9e;
-        }
-
-        .quick-links a {
-            color: #fff;
-            margin: 0 10px;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .quick-links a:hover {
-            color: #ff9a9e;
         }
 
         html, body {
             height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
         }
 
         main {
             flex: 1;
-        }
-
-        footer {
-            background: linear-gradient(135deg, #333, #555);
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            position: relative;
-            width: 100%;
         }
 
         .iframe-style {
@@ -190,7 +163,7 @@
         container.innerHTML += createCard("https://ayushkssk.github.io/image-downloader/", "Image Downloader", "2024-11-22", "github");
         container.innerHTML += createCard("https://ayushkssk.github.io/birthdaywishp/", "Birthday Wish", "2024-11-22", "github");
         container.innerHTML += createCard("https://ayushkssk.github.io/cruswishhb/", "Birthday Wish-2", "2024-11-22", "github");
-        container.innerHTML += createCard("https://ayushkssk.github.io/it4btips", "IT4B Tips", "2024-11-22", "github");
+        container.innerHTML += createCard("https://ayushkssk.github.io/it4btips/", "IT4B Tips", "2024-11-22", "github");
         //container.innerHTML += createCard("https://ayushkssk.github.io/profilecard", "Profile Card", "2024-11-22", "github");
         container.innerHTML += createCard("https://ayushkssk.github.io/Profile/", "Profile", "2024-11-22", "github");
         container.innerHTML += createCard("https://ayushkssk.github.io/newfebwebgemini/", "New Feb Web from Gemini", "2024-11-22", "Gemini");
