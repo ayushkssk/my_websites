@@ -67,6 +67,17 @@
             transform: scale(1.2);
             color: #ff9a9e;
         }
+
+        .quick-links a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .quick-links a:hover {
+            color: #ff9a9e;
+        }
     </style>
 </head>
 <body>
@@ -84,28 +95,35 @@
     <div class="row">
         <!-- Example Card -->
         <div class="col-md-4 mb-4">
-            <div class="card shadow-lg transform transition duration-500 hover:scale-105">
-                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Website Preview">
-                <div class="card-body">
-                    <h3 class="card-title text-xl font-semibold">Website Title</h3>
-                    <p class="card-text text-gray-600">Created Date: 2023-10-01</p>
-                    <p class="card-text text-gray-600">Hosting Site: GitHub Pages</p>
-                    <button class="btn btn-dark w-full mt-2" onclick="showDetails('Website Title')">View Details</button>
+            <a href="ws/DLT.html" class="text-decoration-none">
+                <div class="card shadow-lg transform transition duration-500 hover:scale-105">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Website Preview">
+                    <div class="card-body">
+                        <h3 class="card-title text-xl font-semibold">DLT Authorization Portal</h3>
+                        <p class="card-text text-gray-600">Created Date: 2023-10-01</p>
+                        <p class="card-text text-gray-600">Hosting Site: GitHub Pages</p>
+                        <button class="btn btn-dark w-full mt-2">View Details</button>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <!-- Add more cards as needed -->
     </div>
 </main>
 
 <footer class="mt-4">
+    <div class="quick-links mb-2">
+        <a href="#recent">Recent Websites</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
     <div class="social-icons mb-2">
-        <a href="https://facebook.com" target="_blank" class="mx-2 text-2xl">🔗</a>
-        <a href="https://twitter.com" target="_blank" class="mx-2 text-2xl">🔗</a>
-        <a href="https://linkedin.com" target="_blank" class="mx-2 text-2xl">🔗</a>
+        <a href="https://facebook.com" target="_blank" class="mx-2"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank" class="mx-2"><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com" target="_blank" class="mx-2"><i class="fab fa-linkedin-in"></i></a>
     </div>
     <p>&copy; 2024 My Web Creations. All Rights Reserved.</p>
-    <p>Designed with ❤️ by Ayush (IT4B.in)</p>
+    <p>Designed with ❤️ by [Your Name]</p>
 </footer>
 
 <!-- GSAP -->
