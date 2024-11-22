@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DLT Authorization Portal</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #89f7fe, #66a6ff);
+      color: #333;
+      animation: gradientAnimation 10s infinite;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background: linear-gradient(120deg, #89f7fe, #66a6ff); }
+      50% { background: linear-gradient(120deg, #fbc2eb, #a6c1ee); }
+      100% { background: linear-gradient(120deg, #89f7fe, #66a6ff); }
+    }
+
+    h1, h2 {
+      color: #fff;
+      text-align: center;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    p {
+      line-height: 1.6;
+      padding: 0 15px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+      border-bottom: 5px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .title {
+      font-size: 2.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    /* Section Styling */
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    section h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    pre {
+      background: #333;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    form input, form textarea, form button {
+      width: 80%;
+      max-width: 400px;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      background: #66a6ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background: #0056b3;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #333;
+      color: #fff;
+    }
+
+    /* New Header and Footer Styles */
+    .nav-links, .social-links {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+    }
+
+    .nav-links li, .social-links li {
+      margin: 0 10px;
+    }
+
+    .nav-links a, .social-links a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover, .social-links a:hover {
+      color: #ff9a9e;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 20px 0;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 150px;
+      margin: 10px;
+    }
+
+    .footer-section h3 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section li {
+      margin-bottom: 5px;
+    }
+
+    .footer-section a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: #ff9a9e;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1 class="title">DLT Authorization Portal</h1>
+    <p class="subtitle">Effortlessly Manage Your DLT Registration for Bulk SMS</p>
+    <!-- Navigation Links -->
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">About DLT</a></li>
+        <li><a href="#registration">How to Register</a></li>
+        <li><a href="#afterregistration">After Registration</a></li>
+        <li><a href="#fast2sms">Fast2SMS</a></li>
+        <li><a href="#importantnotes">Important Notes</a></li>
+        <li><a href="#importantdocuments">Important Documents</a></li>
+      </ul>
+    </nav>
+    <!-- Social Media Links -->
+    <ul class="social-links">
+      <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+      <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+      <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <!-- About Section -->
+    <section id="about" class="about">
+      <h2>About DLT Registration</h2>
+      <p>
+        DLT (Distributed Ledger Technology) रजिस्ट्रेशन TRAI (Telecom Regulatory Authority of India) द्वारा अनिवार्य किया गया है। इसका उद्देश्य स्पैम मैसेज रोकना और ग्राहकों को केवल वैध SMS भेजना सुनिश्चित करना है। यदि आप Bulk SMS भेजना चाहते हैं, तो आपको अपनी कंपनी या फर्म का DLT पर रजिस्ट्रेशन करना होगा।
+      </p>
+      <h3>DLT पर रजिस्ट्रेशन कैसे करें?</h3>
+      <ol>
+        <li><strong>DLT प्लेटफॉर्म चुनें:</strong> Jio, Vodafone Idea, या Airtel के DLT प्लेटफॉर्म में से किसी एक पर रजिस्टर करें।</li>
+        <li><strong>Entity Registration (कंपनी का रजिस्ट्रेशन):</strong>
+          <ul>
+            <li>अगर आपकी कंपनी एक Proprietorship (व्यक्तिगत फर्म) है: GST Certificate (यदि है तो) या Shop Establishment Certificate अपलोड करें। मालिक (Proprietor) का नाम, पता, ईमेल और मोबाइल नंबर भरें।</li>
+            <li>अगर आपकी कंपनी Private Limited Company है: MOA (Memorandum of Association), AOA (Articles of Association), और Board Resolution Letter अपलोड करें। यह लेटर बताता है कि कौन आपकी कंपनी का DLT पैनल संभालेगा।</li>
+          </ul>
+        </li>
+        <li><strong>Billing Details:</strong> यदि आपने GST Certificate दिया है, तो उसका एड्रेस ऑटो-फिल हो जाएगा। अन्यथा, मैन्युअली एड्रेस भरें।</li>
+        <li><strong>Document Verification:</strong> पैन कार्ड, आधार कार्ड, या कोई अन्य आईडी प्रूफ अपलोड करें। सभी दस्तावेज़ अपलोड करने के बाद Submit पर क्लिक करें। आपको एक Reference Number और Email मिलेगा।</li>
+      </ol>
+      <h3>Document Verification के बाद क्या होता है?</h3>
+      <p>
+        DLT टीम आपके डॉक्युमेंट्स वेरिफाई करेगी। अगर डॉक्युमेंट्स सही हैं, तो आपको Approval Email मिलेगा और एक Entity ID Number जेनरेट होगा। अगर डॉक्युमेंट्स में कोई कमी है, तो आपकी एप्लिकेशन रिजेक्ट हो जाएगी और आपको सभी स्टेप्स फिर से करने होंगे।
+      </p>
+      <h3>DLT Approval के बाद क्या करें?</h3>
+      <ol>
+        <li><strong>Login करें और Payment करें:</strong> DLT पैनल (जैसे Jio DLT) पर अपनी रजिस्ट्रेशन ईमेल और पासवर्ड से लॉगिन करें। ₹5900 (₹5000 + GST) का पेमेंट करें। पेमेंट के बाद Invoice और पोर्टल का एक्सेस मिलेगा।</li>
+        <li><strong>Sender ID और Header Approve कराएं:</strong> अपनी कंपनी के SMS भेजने के लिए Sender ID (जैसे FASTSMS) और Headers को DLT पैनल पर अपलोड करें।</li>
+      </ol>
+      <h3>Bulk SMS Platform Integration</h3>
+      <p>
+        DLT Approval के बाद, आप Bulk SMS प्लेटफॉर्म (जैसे Fast2SMS) का उपयोग कर सकते हैं:
+      </p>
+      <ul>
+        <li>अपनी Entity ID और Approval Certificate अपलोड करें।</li>
+        <li>Sender ID को Fast2SMS या अन्य प्लेटफॉर्म पर अपलोड करें।</li>
+        <li>अब आप SMS Campaigns शुरू कर सकते हैं।</li>
+      </ul>
+      <h3>जरूरी नोट्स</h3>
+      <ul>
+        <li>Bulk SMS के लिए Fast2SMS जैसी वेबसाइट पर एक अकाउंट बनाना होगा।</li>
+        <li>DLT रजिस्ट्रेशन फ्री नहीं है। ₹5900 का सालाना खर्च होता है।</li>
+        <li>हर स्टेप में सही डॉक्युमेंट अपलोड करना बेहद जरूरी है।</li>
+      </ul>
+      <p>आप Bulk SMS शुरू करने के लिए Fast2SMS जैसे प्लेटफॉर्म की मदद से आसानी से SMS भेज सकते हैं।</p>
+    </section>
+
+    <!-- How to Registration Section -->
+    <section id="registration" class="registration">
+      <h2>DLT पर रजिस्ट्रेशन कैसे करें?</h2>
+      <ol>
+        <li><strong>Step 1: DLT प्लेटफॉर्म चुनें</strong>
+          <ul>
+            <li>Jio, Vodafone Idea, या Airtel के DLT प्लेटफॉर्म में से किसी एक पर रजिस्टर करें।</li>
+            <li>Jio DLT के लिए <a href="https://trueconnect.jio.com/#/" target="_blank">यहां क्लिक करें</a>।</li>
+          </ul>
+        </li>
+        <li><strong>Step 2: Entity Registration (कंपनी का रजिस्ट्रेशन)</strong>
+          <ul>
+            <li>अगर आपकी कंपनी एक Proprietorship (व्यक्तिगत फर्म) है:
+              <ul>
+                <li>GST Certificate (यदि है तो) या Shop Establishment Certificate अपलोड करें।</li>
+                <li>मालिक (Proprietor) का नाम, पता, ईमेल और मोबाइल नंबर भरें।</li>
+              </ul>
+            </li>
+            <li>अगर आपकी कंपनी Private Limited Company है:
+              <ul>
+                <li>MOA (Memorandum of Association), AOA (Articles of Association), और Board Resolution Letter अपलोड करें।</li>
+                <li>यह लेटर बताता है कि कौन आपकी कंपनी का DLT पैनल संभालेगा।</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><strong>Step 3: Billing Details</strong>
+          <ul>
+            <li>यदि आपने GST Certificate दिया है, तो उसका एड्रेस ऑटो-फिल हो जाएगा।</li>
+            <li>अन्यथा, मैन्युअली एड्रेस भरें।</li>
+          </ul>
+        </li>
+        <li><strong>Step 4: Document Verification</strong>
+          <ul>
+            <li>पैन कार्ड, आधार कार्ड, या कोई अन्य आईडी प्रूफ अपलोड करें।</li>
+            <li>सभी दस्तावेज़ अपलोड करने के बाद Submit पर क्लिक करें।</li>
+            <li>आपको एक Reference Number और Email मिलेगा।</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Required Documents Section -->
+    <section class="documents">
+      <h2>Required Documents</h2>
+      <p>
+        Before registering for DLT, ensure you have the following documents ready:
+      </p>
+      <ul>
+        <li><strong>GST Certificate</strong> - To verify the business’s GST registration status.</li>
+        <li><strong>Authorization Letter</strong> - A letter confirming that a person is authorized to manage the DLT account for your organization.</li>
+        <li><strong>Company Registration Documents</strong> - PAN card and company registration documents (MOA, AOA) for private limited firms.</li>
+        <li><strong>ID Proof</strong> - A valid ID proof of the authorized person (Aadhaar card or PAN card).</li>
+        <li><strong>Entity Details</strong> - Name, address, and email details of the person registering the DLT account.</li>
+      </ul>
+    </section>
+
+ 
+
+    <!-- Authorization Letter Template -->
+    <section class="template">
+      <h2>Authorization Letter Template</h2>
+      <pre>
+        <code>
+          <b>Authorization Letter</b>
+          To, DLT Registration Team, [Operator Name]
+          Subject: Authorization for Managing DLT Account
+          We hereby authorize [Name of Authorized Person] to manage our DLT account. 
+          Below are their details:
+          - Name: [Full Name] 
+          - Designation: [Designation] 
+          - Email: [Email Address] 
+          - ID Proof: [Aadhaar/PAN Number]
+          
+          This letter certifies that the above-mentioned person is authorized to manage and register the necessary DLT details for our company. 
+          
+          Thank you, 
+          [Company Name]
+          [Company Address]
+        </code>
+      </pre>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <p>If you have any questions or need assistance with the DLT registration process, feel free to contact us. We are here to help!</p>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Query" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- After Registration Section -->
+    <section id="afterregistration" class="afterregistration">
+      <h2>DLT Approval के बाद क्या करें?</h2>
+      <ol>
+        <li><strong>Step 1: Login करें और Payment करें</strong>
+          <ul>
+            <li>DLT पैनल (जैसे Jio DLT) पर अपनी रजिस्ट्रेशन ईमेल और पासवर्ड से लॉगिन करें।</li>
+            <li>₹5900 (₹5000 + GST) का पेमेंट करें।</li>
+            <li>पेमेंट के बाद Invoice और पोर्टल का एक्सेस मिलेगा।</li>
+          </ul>
+        </li>
+        <li><strong>Step 2: Sender ID और Header Approve कराएं</strong>
+          <ul>
+            <li>अपनी कंपनी के SMS भेजने के लिए Sender ID (जैसे FASTSMS) और Headers को DLT पैनल पर अपलोड करें।</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Bulk SMS Platform Integration Section -->
+    <section id="fast2sms" class="fast2sms">
+      <h2>Bulk SMS Platform Integration</h2>
+      <p>
+        DLT Approval के बाद, आप Bulk SMS प्लेटफॉर्म (जैसे Fast2SMS) का उपयोग कर सकते हैं:
+      </p>
+      <ul>
+        <li>अपनी Entity ID और Approval Certificate अपलोड करें।</li>
+        <li>Sender ID को Fast2SMS या अन्य प्लेटफॉर्म पर अपलोड करें।</li>
+        <li>अब आप SMS Campaigns शुरू कर सकते हैं।</li>
+      </ul>
+    </section>
+
+    <!-- Important Notes Section -->
+    <section id="importantnotes" class="importantnotes">
+      <h2>जरूरी नोट्स</h2>
+      <ul>
+        <li>Bulk SMS के लिए Fast2SMS जैसी वेबसाइट पर एक अकाउंट बनाना होगा।</li>
+        <li>DLT रजिस्ट्रेशन फ्री नहीं है। ₹5900 का सालाना खर्च होता है।</li>
+        <li>हर स्टेप में सही डॉक्युमेंट अपलोड करना बेहद जरूरी है।</li>
+      </ul>
+      <p>आप Bulk SMS शुरू करने के लिए Fast2SMS जैसे प्लेटफॉर्म की मदद से आसानी से SMS भेज सकते हैं।</p>
+    </section>
+
+    <!-- Important Documents Section -->
+    <section id="importantdocuments" class="importantdocuments">
+      <h2>जरूरी डॉक्यूमेंट्स</h2>
+      <p>
+        DLT रजिस्ट्रेशन के लिए जरूरी डॉक्यूमेंट्स आपकी कंपनी के प्रकार (Proprietorship, Partnership, Private Limited, आदि) पर निर्भर करते हैं। नीचे प्रकार के अनुसार डॉक्यूमेंट्स की लिस्ट दी गई है:
+      </p>
+      <h3>1. Proprietorship Firm (व्यक्तिगत फर्म) के लिए:</h3>
+      <ul>
+        <li>GST Certificate
+          <ul>
+            <li>यदि GST पंजीकरण नहीं है, तो Shop Establishment Certificate या Trade License दे सकते हैं।</li>
+          </ul>
+        </li>
+        <li>PAN Card (फर्म या मालिक का)</li>
+        <li>Owner का ID Proof:
+          <ul>
+            <li>आधार कार्ड या वोटर ID या पासपोर्ट।</li>
+          </ul>
+        </li>
+        <li>Owner का Address Proof:
+          <ul>
+            <li>बिजली का बिल, बैंक स्टेटमेंट या रेंट एग्रीमेंट।</li>
+          </ul>
+        </li>
+        <li>Authorization Letter:
+          <ul>
+            <li>यह बताने के लिए कि कौन DLT पैनल संभालेगा।</li>
+          </ul>
+        </li>
+        <li>Mobile Number और Email ID:
+          <ul>
+            <li>जो रजिस्ट्रेशन के लिए इस्तेमाल होगा।</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>2. Private Limited Company (निजी लिमिटेड कंपनी) के लिए:</h3>
+      <ul>
+        <li>GST Certificate</li>
+        <li>PAN Card (कंपनी का)</li>
+        <li>MOA और AOA:
+          <ul>
+            <li>MOA (Memorandum of Association) और AOA (Articles of Association)।</li>
+          </ul>
+        </li>
+        <li>Board Resolution Letter:
+          <ul>
+            <li>कंपनी की Letterhead पर लिखा हुआ, जिसमें Authorized Person का नाम, ID Proof, और Designation हो।</li>
+          </ul>
+        </li>
+        <li>Authorized Person का ID Proof:
+          <ul>
+            <li>आधार कार्ड, पैन कार्ड या पासपोर्ट।</li>
+          </ul>
+        </li>
+        <li>Authorized Person का Address Proof:
+          <ul>
+            <li>बिजली का बिल, बैंक स्टेटमेंट या रेंट एग्रीमेंट।</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>3. Partnership Firm (साझेदारी फर्म) के लिए:</h3>
+      <ul>
+        <li>Partnership Deed:
+          <ul>
+            <li>पार्टनरशिप का प्रमाण।</li>
+          </ul>
+        </li>
+        <li>GST Certificate</li>
+        <li>PAN Card:
+          <ul>
+            <li>फर्म का।</li>
+          </ul>
+        </li>
+        <li>Authorization Letter:
+          <ul>
+            <li>DLT पैनल संभालने वाले व्यक्ति का नाम और Designation।</li>
+          </ul>
+        </li>
+        <li>Authorized Person का ID और Address Proof।</li>
+      </ul>
+
+      <h3>4. यदि GST पंजीकरण नहीं है:</h3>
+      <ul>
+        <li>Shop Establishment Certificate</li>
+        <li>Trade License</li>
+        <li>या किसी भी राज्य सरकार द्वारा जारी किया गया Registration Certificate।</li>
+      </ul>
+
+      <h3>जरूरी डॉक्यूमेंट फॉर्मेट्स:</h3>
+      <ul>
+        <li>सभी डॉक्यूमेंट्स साफ और स्कैन किए हुए PDF फॉर्मेट में होने चाहिए।</li>
+        <li>GST Certificate और Authorization Letter पर डिजिटल या मैनुअल सिग्नेचर होना चाहिए।</li>
+      </ul>
+
+      <h3>सुझाव:</h3>
+      <p>
+        अगर आप सुनिश्चित नहीं हैं कि कौन से डॉक्यूमेंट देने हैं, DLT प्लेटफॉर्म (जैसे Jio, Airtel, या Vodafone Idea) पर लॉगिन करें। वहां, डॉक्यूमेंट्स की पूरी लिस्ट मिल जाएगी।
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#blogs">Blogs</a></li>
+          <li><a href="#updates">New Updates</a></li>
+          <li><a href="#registration">How to Register</a></li>
+          <li><a href="#afterregistration">After Registration</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Social Media</h3>
+        <ul>
+          <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+          <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+          <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Email: support@dltportal.com</p>
+        <p>Phone: +123 456 7890</p>
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Query" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <p>&copy; 2024 DLT Registration Portal. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for contacting us! We will get back to you shortly.');
+    });
+  </script>
+</body>
+</html>
