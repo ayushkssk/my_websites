@@ -118,34 +118,7 @@
 
 <main class="container mx-auto px-4">
     <div class="row">
-        <!-- Example Card -->
-        <div class="col-md-4 mb-4">
-            <a href="ws/DLT.html" class="text-decoration-none">
-                <div class="card shadow-lg transform transition duration-500 hover:scale-105">
-                    <iframe src="ws/DLT.html" class="card-img-top iframe-style" title="Website Preview"></iframe>
-                    <div class="card-body">
-                        <h3 class="card-title text-xl font-semibold">DLT Authorization Portal</h3>
-                        <p class="card-text text-gray-600">Created Date: 2023-10-01</p>
-                        <p class="card-text text-gray-600">Hosting Site: GitHub Pages</p>
-                        <button class="btn btn-dark w-full mt-2">View Details</button>
-                    </div>
-                </div>
-            </a>
-        </div>
-      <!-- Add more cards as needed -->
-      <div class="col-md-4 mb-4">
-        <a href="https://v0-sunwardfarms-ayhifqqxoeu-10pjzlswg-ayushkssks-projects.vercel.app" class="text-decoration-none">
-            <div class="card shadow-lg transform transition duration-500 hover:scale-105">
-                <iframe src="https://v0-sunwardfarms-ayhifqqxoeu-10pjzlswg-ayushkssks-projects.vercel.app" class="card-img-top iframe-style" title="Website Preview"></iframe>
-                <div class="card-body">
-                    <h3 class="card-title text-xl font-semibold">Sunward Farms</h3>
-                    <p class="card-text text-gray-600">Created Date: 2024-11-22</p>
-                    <p class="card-text text-gray-600">Hosting Site: Vercel</p>
-                    <button class="btn btn-dark w-full mt-2">View Details</button>
-                </div>
-            </div>
-        </a>
-    </div>
+        <!-- Cards will be inserted here by JavaScript -->
     </div>
 </main>
 
@@ -174,6 +147,30 @@
     function showDetails(title) {
         alert('Details for ' + title + ': This is a placeholder for more detailed information about the website.');
     }
+
+    function createCard(link, title, createdDate, hostingSite) {
+        return `
+        <div class="col-md-4 mb-4">
+            <a href="${link}" class="text-decoration-none">
+                <div class="card shadow-lg transform transition duration-500 hover:scale-105">
+                    <iframe src="${link}" class="card-img-top iframe-style" title="Website Preview"></iframe>
+                    <div class="card-body">
+                        <h3 class="card-title text-xl font-semibold">${title}</h3>
+                        <p class="card-text text-gray-600">Created Date: ${createdDate}</p>
+                        <p class="card-text text-gray-600">Hosting Site: ${hostingSite}</p>
+                        <button class="btn btn-dark w-full mt-2">View Details</button>
+                    </div>
+                </div>
+            </a>
+        </div>`;
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const container = document.querySelector('.row');
+        container.innerHTML += createCard("ws/DLT.html", "DLT Authorization Portal", "2023-10-01", "GitHub Pages");
+        container.innerHTML += createCard("https://v0-sunwardfarms-ayhifqqxoeu-10pjzlswg-ayushkssks-projects.vercel.app", "Sunward Farms", "2024-11-22", "Vercel");
+        // Add more cards as needed
+    });
 </script>
 
 <!-- Bootstrap JS -->
