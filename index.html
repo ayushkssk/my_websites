@@ -76,6 +76,15 @@
             height: 200px;
             border: none;
         }
+
+        .card.dragging {
+            opacity: 0.5;
+            cursor: move;
+        }
+
+        .col-md-4 {
+            transition: transform 0.2s ease;
+        }
     </style>
 </head>
 <body>
@@ -123,9 +132,12 @@
 
     function createCard(link, title, createdDate, hostingSite) {
         return `
-        <div class="col-md-4 mb-4">
-            <a href="${link}" class="text-decoration-none">
-                <div class="card shadow-lg transform transition duration-500 hover:scale-105">
+        <div class="col-md-4 mb-4" draggable="true">
+            <div class="card shadow-lg transform transition duration-500 hover:scale-105">
+                <div class="card-header handle cursor-move bg-gray-100 py-2">
+                    <i class="fas fa-grip-lines">Drag</i>
+                </div>
+                <a href="${link}" class="text-decoration-none">
                     <iframe src="${link}" class="card-img-top iframe-style" title="Website Preview"></iframe>
                     <div class="card-body">
                         <h3 class="card-title text-xl font-semibold">${title}</h3>
@@ -133,10 +145,10 @@
                         <p class="card-text text-gray-600">Hosting Site: ${hostingSite}</p>
                         <button class="btn btn-dark w-full mt-2">Visit Website</button>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
-        `
+        `;
     }
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -178,6 +190,64 @@
         container.innerHTML += createCard("https://ayushkssk.github.io/College/", "College", "2024-11-22", "github");
         container.innerHTML += createCard("https://ayushkssk.github.io/satwik.github.io/", "Satwik", "2024-11-22", "github");
         
+        // Add drag and drop functionality
+        container.addEventListener('dragstart', (e) => {
+            const draggedItem = e.target.closest('.col-md-4');
+            if (draggedItem) {
+                draggedItem.classList.add('dragging');
+                e.dataTransfer.setData('text/plain', ''); // Required for Firefox
+            }
+        });
+
+        container.addEventListener('dragend', (e) => {
+            const draggedItem = e.target.closest('.col-md-4');
+            if (draggedItem) {
+                draggedItem.classList.remove('dragging');
+            }
+        });
+
+        container.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            const draggedItem = container.querySelector('.dragging');
+            const siblings = [...container.querySelectorAll('.col-md-4:not(.dragging)')];
+            
+            const nextSibling = siblings.find(sibling => {
+                const box = sibling.getBoundingClientRect();
+                const offset = e.clientY - box.top - box.height / 2;
+                return offset < 0;
+            });
+
+            if (nextSibling) {
+                container.insertBefore(draggedItem, nextSibling);
+            } else {
+                container.appendChild(draggedItem);
+            }
+        });
+
+        // Optional: Save order to localStorage
+        function saveOrder() {
+            const cards = [...container.querySelectorAll('.col-md-4')];
+            const order = cards.map(card => {
+                const title = card.querySelector('.card-title').textContent;
+                const link = card.querySelector('a').href;
+                const date = card.querySelector('.card-text').textContent.split(': ')[1];
+                const hosting = card.querySelectorAll('.card-text')[1].textContent.split(': ')[1];
+                return { title, link, date, hosting };
+            });
+            localStorage.setItem('cardsOrder', JSON.stringify(order));
+        }
+
+        // Save order after each drag
+        container.addEventListener('dragend', saveOrder);
+
+        // Optional: Load saved order on page load
+        const savedOrder = localStorage.getItem('cardsOrder');
+        if (savedOrder) {
+            container.innerHTML = '';
+            JSON.parse(savedOrder).forEach(card => {
+                container.innerHTML += createCard(card.link, card.title, card.date, card.hosting);
+            });
+        }
     });
 </script>
 
