@@ -89,13 +89,110 @@
 </head>
 <body>
 
-<header class="mb-4">
-    <h1 class="text-4xl font-bold">My Web Creations</h1>
-    <nav class="mt-2">
-        <a href="#recent" class="text-white mx-3 hover:text-pink-400">Recent Websites</a>
-        <a href="#about" class="text-white mx-3 hover:text-pink-400">About</a>
-        <a href="#contact" class="text-white mx-3 hover:text-pink-400">Contact</a>
-    </nav>
+<header class="mb-4 py-6">
+    <!-- Top Bar -->
+    <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-2 mb-4">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center px-4">
+                <div class="text-sm">
+                    <i class="fas fa-envelope mr-2"></i>contact@it4b.in
+                    <span class="mx-3">|</span>
+                    <i class="fas fa-phone mr-2"></i>+91 123-456-7890
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="hover:text-pink-200"><i class="fab fa-github"></i></a>
+                    <a href="#" class="hover:text-pink-200"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-pink-200"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+            <div class="flex items-center">
+                <!-- <img src="https://it4b.in/logo.png" alt="Logo" class="h-12 w-12 mr-4"> -->
+                <div>
+                    <h1 class="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">
+                        My Web Creations
+                    </h1>
+                    <p class="text-gray-300 text-sm mt-1">Transforming Ideas into Digital Reality</p>
+                </div>
+            </div>
+            <!-- <div class="mt-4 md:mt-0">
+                <a href="https://ayushkssk.github.io/Profile/assets/images/download/resumesep24.pdf" class="btn btn-primary" download>
+                    Download CV
+                </a>
+            </div> -->
+        </div>
+
+        <!-- Navigation -->
+        <nav class="bg-gray-800 rounded-lg p-2">
+            <div class="flex flex-wrap justify-center md:justify-between items-center">
+                <div class="flex space-x-1">
+                    <a href="#recent" class="px-4 py-2 rounded-md text-white hover:bg-purple-600 transition-colors duration-300">
+                        <i class="fas fa-clock mr-2"></i>Recent Websites
+                    </a>
+                    <a href="#about" class="px-4 py-2 rounded-md text-white hover:bg-purple-600 transition-colors duration-300">
+                        <i class="fas fa-user mr-2"></i>About
+                    </a>
+                    <a href="#contact" class="px-4 py-2 rounded-md text-white hover:bg-purple-600 transition-colors duration-300">
+                        <i class="fas fa-envelope mr-2"></i>Contact
+                    </a>
+                    <a href="#portfolio" class="px-4 py-2 rounded-md text-white hover:bg-purple-600 transition-colors duration-300">
+                        <i class="fas fa-briefcase mr-2"></i>Portfolio
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center">
+                    <div class="relative">
+                        <input type="search" 
+                               placeholder="Search projects..." 
+                               class="bg-gray-700 text-white px-4 py-1 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-600 pl-10"
+                               autocomplete="off">
+                        <i class="fas fa-search absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-wrap items-center space-x-4 mt-4 md:mt-0">
+                <!-- Hosting Filter -->
+                <div class="relative group">
+                    <button class="bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-purple-600 transition-colors duration-300">
+                        <i class="fas fa-server mr-2"></i>Hosting
+                    </button>
+                    <div class="absolute hidden group-hover:block bg-gray-800 rounded-lg mt-2 p-2 z-10 w-48">
+                        <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
+                            <input type="checkbox" class="hosting-filter mr-2" value="github"> GitHub
+                        </label>
+                        <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
+                            <input type="checkbox" class="hosting-filter mr-2" value="vercel"> Vercel
+                        </label>
+                        <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
+                            <input type="checkbox" class="hosting-filter mr-2" value="render"> Render
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Language Filter -->
+                <div class="relative group">
+                    <button class="bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-purple-600 transition-colors duration-300">
+                        <i class="fas fa-code mr-2"></i>Language
+                    </button>
+                    <div class="absolute hidden group-hover:block bg-gray-800 rounded-lg mt-2 p-2 z-10 w-48">
+                        <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
+                            <input type="checkbox" class="language-filter mr-2" value="html"> HTML/CSS
+                        </label>
+                        <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
+                            <input type="checkbox" class="language-filter mr-2" value="react"> React
+                        </label>
+                        <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
+                            <input type="checkbox" class="language-filter mr-2" value="javascript"> JavaScript
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
 </header>
 
 <main class="container mx-auto px-4">
@@ -130,12 +227,17 @@
         alert('Details for ' + title + ': This is a placeholder for more detailed information about the website.');
     }
 
-    function createCard(link, title, createdDate, hostingSite) {
+    function createCard(link, title, createdDate, hostingSite, language = 'html') {
         return `
-        <div class="col-md-4 mb-4" draggable="true">
+        <div class="col-md-4 mb-4" draggable="true" data-hosting="${hostingSite.toLowerCase()}" data-language="${language}">
             <div class="card shadow-lg transform transition duration-500 hover:scale-105">
-                <div class="card-header handle cursor-move bg-gray-100 py-2">
-                    ::
+                <div class="card-header handle cursor-move bg-gray-100 py-2 flex justify-between items-center">
+                    <span>::</span>
+                    <span class="text-xs px-2 py-1 rounded-full ${
+                        language === 'react' ? 'bg-blue-500' : 
+                        language === 'javascript' ? 'bg-yellow-500' : 
+                        'bg-red-500'
+                    } text-white">${language.toUpperCase()}</span>
                 </div>
                 <a href="${link}" class="text-decoration-none">
                     <iframe src="${link}" class="card-img-top iframe-style" title="Website Preview"></iframe>
@@ -249,6 +351,65 @@
             });
         }
     });
+
+    // Add this function for searching
+    function searchProjects() {
+        const searchInput = document.querySelector('input[type="search"]');
+        const searchQuery = searchInput.value.toLowerCase().trim();
+        const cards = document.querySelectorAll('.col-md-4');
+
+        cards.forEach(card => {
+            const title = card.querySelector('.card-title').textContent.toLowerCase();
+            const hosting = card.querySelector('.card-text:nth-child(2)').textContent.toLowerCase();
+            const language = card.getAttribute('data-language')?.toLowerCase() || '';
+
+            const matchesSearch = 
+                title.includes(searchQuery) || 
+                hosting.includes(searchQuery) || 
+                language.includes(searchQuery);
+
+            // Using GSAP for smooth animations
+            if (matchesSearch) {
+                card.style.display = '';
+                gsap.to(card, {
+                    duration: 0.3,
+                    opacity: 1,
+                    scale: 1,
+                    ease: "power2.out"
+                });
+            } else {
+                gsap.to(card, {
+                    duration: 0.3,
+                    opacity: 0,
+                    scale: 0.95,
+                    ease: "power2.in",
+                    onComplete: () => card.style.display = 'none'
+                });
+            }
+        });
+
+        // Update results count
+        const visibleCards = document.querySelectorAll('.col-md-4[style=""]').length;
+        updateSearchResults(visibleCards, searchQuery);
+    }
+
+    // Add this function to show search results feedback
+    function updateSearchResults(count, query) {
+        let resultsDiv = document.getElementById('search-results');
+        if (!resultsDiv) {
+            resultsDiv = document.createElement('div');
+            resultsDiv.id = 'search-results';
+            resultsDiv.className = 'text-sm text-gray-500 mt-2';
+            document.querySelector('.relative').appendChild(resultsDiv);
+        }
+
+        if (query) {
+            resultsDiv.textContent = `Found ${count} project${count !== 1 ? 's' : ''} matching "${query}"`;
+            resultsDiv.style.display = 'block';
+        } else {
+            resultsDiv.style.display = 'none';
+        }
+    }
 </script>
 
 <!-- Bootstrap JS -->
