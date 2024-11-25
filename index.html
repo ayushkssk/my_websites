@@ -129,22 +129,8 @@
 
         <!-- Navigation -->
         <nav class="bg-gray-800 rounded-lg p-2">
-            <div class="flex flex-wrap justify-center md:justify-between items-center">
-                <!-- <div class="flex space-x-1">
-                    <a href="#recent" class="px-4 py-2 rounded-md text-white hover:bg-purple-600 transition-colors duration-300">
-                        <i class="fas fa-clock mr-2"></i>Recent Websites
-                    </a>
-                    <a href="#about" class="px-4 py-2 rounded-md text-white hover:bg-purple-600 transition-colors duration-300">
-                        <i class="fas fa-user mr-2"></i>About
-                    </a>
-                    <a href="#contact" class="px-4 py-2 rounded-md text-white hover:bg-purple-600 transition-colors duration-300">
-                        <i class="fas fa-envelope mr-2"></i>Contact
-                    </a>
-                    <a href="#portfolio" class="px-4 py-2 rounded-md text-white hover:bg-purple-600 transition-colors duration-300">
-                        <i class="fas fa-briefcase mr-2"></i>Portfolio
-                    </a>
-                </div> -->
-                <div class="hidden md:flex items-left">
+            <div class="flex flex-wrap items-center">
+                <div class="flex items-center">
                     <div class="relative">
                         <input type="search" 
                                placeholder="Search projects..." 
@@ -153,41 +139,42 @@
                         <i class="fas fa-search absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                     </div>
                 </div>
-            </div>
-            <div class="flex flex-wrap items-center space-x-4 mt-4 md:mt-0">
-                <!-- Hosting Filter -->
-                <div class="relative group">
-                    <button class="bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-purple-600 transition-colors duration-300">
-                        <i class="fas fa-server mr-2"></i>Hosting
-                    </button>
-                    <div class="absolute hidden group-hover:block bg-gray-800 rounded-lg mt-2 p-2 z-10 w-48">
-                        <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
-                            <input type="checkbox" class="hosting-filter mr-2" value="github"> GitHub
-                        </label>
-                        <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
-                            <input type="checkbox" class="hosting-filter mr-2" value="vercel"> Vercel
-                        </label>
-                        <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
-                            <input type="checkbox" class="hosting-filter mr-2" value="render"> Render
-                        </label>
-                    </div>
-                </div>
                 
-                <!-- Language Filter -->
-                <div class="relative group">
-                    <button class="bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-purple-600 transition-colors duration-300">
-                        <i class="fas fa-code mr-2"></i>Language
-                    </button>
-                    <div class="absolute hidden group-hover:block bg-gray-800 rounded-lg mt-2 p-2 z-10 w-48">
-                        <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
-                            <input type="checkbox" class="language-filter mr-2" value="html"> HTML/CSS
-                        </label>
-                        <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
-                            <input type="checkbox" class="language-filter mr-2" value="react"> React
-                        </label>
-                        <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
-                            <input type="checkbox" class="language-filter mr-2" value="javascript"> JavaScript
-                        </label>
+                <div class="flex flex-wrap items-center space-x-4 ml-auto">
+                    <!-- Hosting Filter -->
+                    <div class="relative group">
+                        <button class="bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-purple-600 transition-colors duration-300">
+                            <i class="fas fa-server mr-2"></i>Hosting
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-gray-800 rounded-lg mt-2 p-2 z-10 w-48">
+                            <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
+                                <input type="checkbox" class="hosting-filter mr-2" value="github"> GitHub
+                            </label>
+                            <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
+                                <input type="checkbox" class="hosting-filter mr-2" value="vercel"> Vercel
+                            </label>
+                            <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
+                                <input type="checkbox" class="hosting-filter mr-2" value="render"> Render
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Language Filter -->
+                    <div class="relative group">
+                        <button class="bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-purple-600 transition-colors duration-300">
+                            <i class="fas fa-code mr-2"></i>Language
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-gray-800 rounded-lg mt-2 p-2 z-10 w-48">
+                            <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
+                                <input type="checkbox" class="language-filter mr-2" value="html"> HTML/CSS
+                            </label>
+                            <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
+                                <input type="checkbox" class="language-filter mr-2" value="react"> React
+                            </label>
+                            <label class="flex items-center px-4 py-2 hover:bg-purple-600 cursor-pointer text-white">
+                                <input type="checkbox" class="language-filter mr-2" value="javascript"> JavaScript
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
