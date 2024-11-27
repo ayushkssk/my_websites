@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #1e3c72, #2a5298); /* Night sky gradient */
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            color: white;
+        }
+
+        /* Snow Effect */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: white;
+            font-size: 1rem;
+            animation: fall 8s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px) translateX(0);
+            }
+            100% {
+                transform: translateY(110vh) translateX(calc(50vw - 10px));
+            }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: gold;
+            text-shadow: 2px 2px 5px #ff0000, 0 0 10px white;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            to {
+                text-shadow: 2px 2px 5px #00ff00, 0 0 20px #ffffff;
+            }
+        }
+
+        /* Button */
+        .magic-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 20px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(255, 255, 255, 0.3);
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            to {
+                transform: scale(1.1);
+                box-shadow: 0 10px 15px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            color: #f3f3f3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Snowflakes -->
+    <div id="snow-container"></div>
+
+    <!-- Header -->
+    <header>
+        <h1>Merry Christmas!</h1>
+        <button class="magic-btn" onclick="revealMagic()">Discover the Magic</button>
+    </header>
+
+    <!-- Footer -->
+    <footer>
+        <p>Designed with ❤️ for Christmas!</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Generate Snowflakes
+        const snowContainer = document.getElementById('snow-container');
+        for (let i = 0; i < 100; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDelay = Math.random() * 8 + 's';
+            snowflake.style.fontSize = Math.random() * 20 + 10 + 'px';
+            snowContainer.appendChild(snowflake);
+        }
+
+        // Magic Button Animation
+        function revealMagic() {
+            alert("Surprise! Enjoy the festive season!");
+        }
+    </script>
+</body>
+</html>
