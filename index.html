@@ -558,113 +558,40 @@
         }
     }
 
-    // Scroll buttons functionality with enhanced features
+    // Scroll buttons functionality
     const scrollUpBtn = document.getElementById('scrollUpBtn');
     const scrollDownBtn = document.getElementById('scrollDownBtn');
 
-    // Smooth scroll function with animation
+    // Smooth scroll function
     function smoothScroll(target) {
-        gsap.to(window, {
-            duration: 1,
-            scrollTo: target,
-            ease: "power2.inOut"
+        window.scrollTo({
+            top: target,
+            behavior: 'smooth'
         });
     }
 
-    // Click handlers with visual feedback
+    // Click handlers
     scrollUpBtn.addEventListener('click', () => {
         smoothScroll(0);
-        // Add click animation
-        gsap.to(scrollUpBtn, {
-            duration: 0.2,
-            scale: 0.9,
-            yoyo: true,
-            repeat: 1
-        });
     });
 
     scrollDownBtn.addEventListener('click', () => {
-        smoothScroll(document.documentElement.scrollHeight);
-        // Add click animation
-        gsap.to(scrollDownBtn, {
-            duration: 0.2,
-            scale: 0.9,
-            yoyo: true,
-            repeat: 1
-        });
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        smoothScroll(maxScroll);
     });
 
-    // Enhanced scroll visibility logic with smooth transitions
+    // Scroll visibility logic
     window.addEventListener('scroll', () => {
         const scrolled = window.scrollY;
         const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
         const scrollThreshold = 200; // Show buttons after scrolling this many pixels
 
-        // Up button visibility with animation
-        if (scrolled > scrollThreshold) {
-            gsap.to(scrollUpBtn, {
-                duration: 0.3,
-                opacity: 1,
-                y: 0,
-                visibility: 'visible'
-            });
-        } else {
-            gsap.to(scrollUpBtn, {
-                duration: 0.3,
-                opacity: 0,
-                y: 50,
-                visibility: 'hidden'
-            });
-        }
+        // Up button visibility
+        scrollUpBtn.style.display = scrolled > scrollThreshold ? 'flex' : 'none';
 
-        // Down button visibility with animation
-        if (scrolled < maxScroll - scrollThreshold) {
-            gsap.to(scrollDownBtn, {
-                duration: 0.3,
-                opacity: 1,
-                y: 0,
-                visibility: 'visible'
-            });
-        } else {
-            gsap.to(scrollDownBtn, {
-                duration: 0.3,
-                opacity: 0,
-                y: 50,
-                visibility: 'hidden'
-            });
-        }
+        // Down button visibility
+        scrollDownBtn.style.display = scrolled < maxScroll - scrollThreshold ? 'flex' : 'none';
     });
-
-    // Add hover effects with GSAP
-    [scrollUpBtn, scrollDownBtn].forEach(btn => {
-        btn.addEventListener('mouseenter', () => {
-            gsap.to(btn, {
-                duration: 0.3,
-                scale: 1.1,
-                boxShadow: "0 10px 20px rgba(0,0,0,0.2)"
-            });
-        });
-        
-        btn.addEventListener('mouseleave', () => {
-            gsap.to(btn, {
-                duration: 0.3,
-                scale: 1,
-                boxShadow: "0 4px 6px rgba(0,0,0,0.1)"
-            });
-        });
-    });
-
-    // Optional: Add scroll progress indicator
-    const addScrollProgress = () => {
-        const progress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-        gsap.to([scrollUpBtn, scrollDownBtn], {
-            duration: 0.3,
-            borderWidth: `${Math.min(progress, 3)}px`,
-            borderColor: "rgba(255,255,255,0.5)"
-        });
-    };
-
-    window.addEventListener('scroll', addScrollProgress);
 </script>
 
 <!-- Bootstrap JS -->
@@ -674,7 +601,7 @@
 
 <!-- Updated scroll buttons -->
 <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-50">
-    <button id="scrollUpBtn" class="scroll-btn bg-gradient-to-r from-purple-600 to-pink-600 text-white w-14 h-14 rounded-full shadow-xl flex items-center justify-center transition-all duration-300 opacity-0 invisible transform translate-y-10">
+    <button id="scrollUpBtn" class="scroll-btn bg-gradient-to-r from-purple-600 to-pink-600 text-white w-14 h-14 rounded-full shadow-xl flex items-center justify-center transition-all duration-300">
         <i class="fas fa-chevron-up text-lg"></i>
     </button>
     <button id="scrollDownBtn" class="scroll-btn bg-gradient-to-r from-purple-600 to-pink-600 text-white w-14 h-14 rounded-full shadow-xl flex items-center justify-center transition-all duration-300">
