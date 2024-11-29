@@ -85,6 +85,23 @@
         .col-md-4 {
             transition: transform 0.2s ease;
         }
+
+        #scrollButton {
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            transform: translateY(100px);
+        }
+
+        #scrollButton.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #scrollButton.bottom {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body>
@@ -522,11 +539,56 @@
             resultsDiv.style.display = 'none';
         }
     }
+
+    // Scroll button functionality
+    const scrollButton = document.getElementById('scrollButton');
+    let isAtBottom = false;
+
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        
+        if (scrolled > 300) {
+            scrollButton.classList.add('visible');
+            
+            // Check if we're near the bottom
+            if (scrolled >= maxScroll - 50) {
+                scrollButton.classList.add('bottom');
+                isAtBottom = true;
+            } else {
+                scrollButton.classList.remove('bottom');
+                isAtBottom = false;
+            }
+        } else {
+            scrollButton.classList.remove('visible');
+        }
+    });
+
+    scrollButton.addEventListener('click', () => {
+        if (isAtBottom) {
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // Scroll to bottom
+            window.scrollTo({
+                top: document.documentElement.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+    });
 </script>
 
 <!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Add this right before the closing </body> tag -->
+<button id="scrollButton" class="fixed bottom-4 right-4 bg-purple-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:bg-purple-700 focus:outline-none">
+    <i class="fas fa-arrow-up"></i>
+</button>
 </body>
 </html>
